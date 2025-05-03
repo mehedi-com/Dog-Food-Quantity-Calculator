@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Free online calculator to determine the perfect amount of food for your dog based on weight, activity level, and age. Keep your pet healthy with proper nutrition.">
+    <meta name="keywords" content="dog food calculator, pet nutrition, dog feeding guide, dog food quantity, puppy feeding calculator">
+    <meta name="author" content="Pet Care Tools">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://example.com/dog-food-calculator/">
+    <meta property="og:title" content="Dog Food Quantity Calculator | Perfect Portions for Your Pet">
+    <meta property="og:description" content="Calculate the ideal amount of food for your dog based on weight, age, and activity level. Free online tool.">
+    <meta property="og:image" content="https://example.com/images/dog-food-calculator-preview.jpg">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://example.com/dog-food-calculator/">
+    <meta property="twitter:title" content="Dog Food Quantity Calculator | Perfect Portions for Your Pet">
+    <meta property="twitter:description" content="Calculate the ideal amount of food for your dog based on weight, age, and activity level. Free online tool.">
+    <meta property="twitter:image" content="https://example.com/images/dog-food-calculator-preview.jpg">
+    
+    <title>Dog Food Quantity Calculator | Perfect Portions for Your Pet</title>
+    
+    <style>
+        :root {
+            --primary-color: #4f46e5;
+            --secondary-color: #f59e0b;
+            --light-color: #f3f4f6;
+            --dark-color: #1f2937;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--dark-color);
+            margin: 0;
+            padding: 0;
+            background-color: #f9fafb;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background-color: white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            padding: 20px 0;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+        
+        .calculator-card {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            padding: 30px;
+            margin: 40px 0;
+        }
+        
+        h1 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            font-size: 2.2rem;
+        }
+        
+        h2 {
+            color: var(--dark-color);
+            margin-top: 40px;
+            font-size: 1.5rem;
+        }
+        
+        .description {
+            color: #6b7280;
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+        
+        input, select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #d1d5db;
+            border-radius: 6px;
+            font-size: 16px;
+        }
+        
+        input:focus, select:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.2);
+        }
+        
+        button {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        button:hover {
+            background-color: #4338ca;
+        }
+        
+        .result {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #f0fdf4;
+            border-radius: 6px;
+            border-left: 4px solid #10b981;
+            display: none;
+        }
+        
+        .result h3 {
+            margin-top: 0;
+            color: #065f46;
+        }
+        
+        .ad-container {
+            background-color: #e5e7eb;
+            padding: 20px;
+            text-align: center;
+            margin: 40px 0;
+            border-radius: 6px;
+        }
+        
+        .faq-item {
+            margin-bottom: 20px;
+        }
+        
+        .faq-question {
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+        
+        .blog-links {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 40px 0;
+        }
+        
+        .blog-card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            padding: 20px;
+            transition: transform 0.3s;
+        }
+        
+        .blog-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .blog-card h3 {
+            margin-top: 0;
+            color: var(--primary-color);
+        }
+        
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 30px 0;
+            margin-top: 60px;
+        }
+        
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            .calculator-card {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <a href="/" class="logo">PetCareTools</a>
+            <nav>
+                <a href="/dog-tools">Dog Tools</a> |
+                <a href="/blog">Blog</a> |
+                <a href="/about">About</a>
+            </nav>
+        </div>
+    </header>
+    
+    <main class="container">
+        <article>
+            <h1>Dog Food Quantity Calculator</h1>
+            <p class="description">Determine the perfect amount of food for your dog based on weight, activity level, and age. Proper nutrition is key to your pet's health and longevity.</p>
+            
+            <div class="calculator-card">
+                <form id="dogFoodCalculator">
+                    <div class="form-group">
+                        <label for="dogWeight">Dog's Weight (lbs)</label>
+                        <input type="number" id="dogWeight" min="1" max="300" required placeholder="e.g., 25">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="dogAge">Dog's Age</label>
+                        <select id="dogAge" required>
+                            <option value="">Select age category</option>
+                            <option value="puppy">Puppy (under 1 year)</option>
+                            <option value="adult">Adult (1-7 years)</option>
+                            <option value="senior">Senior (7+ years)</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="activityLevel">Activity Level</label>
+                        <select id="activityLevel" required>
+                            <option value="">Select activity level</option>
+                            <option value="low">Low (mostly indoors, little exercise)</option>
+                            <option value="moderate">Moderate (daily walks, some play)</option>
+                            <option value="high">High (very active, working dog)</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="foodType">Food Type</label>
+                        <select id="foodType" required>
+                            <option value="">Select food type</option>
+                            <option value="dry">Dry Kibble</option>
+                            <option value="wet">Wet Food</option>
+                            <option value="raw">Raw Diet</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>
+                            <input type="checkbox" id="isNeutered"> Is your dog spayed/neutered?
+                        </label>
+                    </div>
+                    
+                    <button type="submit">Calculate Food Amount</button>
+                </form>
+                
+                <div id="result" class="result">
+                    <h3>Recommended Daily Food Amount</h3>
+                    <p id="resultText"></p>
+                    <p id="additionalTips"></p>
+                </div>
+            </div>
+            
+            <div class="ad-container">
+                <!-- Google AdSense Placeholder -->
+                <p>Advertisement</p>
+                <div style="background-color: #d1d5db; height: 90px; display: flex; align-items: center; justify-content: center;">
+                    Google AdSense Banner (728x90)
+                </div>
+            </div>
+            
+            <section>
+                <h2>How Much Should You Feed Your Dog?</h2>
+                <p>Determining the right amount of food for your dog depends on several factors including their size, age, metabolism, and activity level. Our calculator provides a general guideline, but always consult with your veterinarian for personalized advice.</p>
+                
+                <p>Overfeeding can lead to obesity and related health problems, while underfeeding may result in nutritional deficiencies. It's important to monitor your dog's weight and adjust portions accordingly.</p>
+            </section>
+            
+            <section>
+                <h2>Frequently Asked Questions</h2>
+                
+                <div class="faq-item">
+                    <div class="faq-question">How often should I feed my dog?</div>
+                    <p>Puppies typically need 3-4 small meals per day. Adult dogs do well with 2 meals per day, while some seniors may prefer smaller, more frequent meals. The total daily amount calculated by our tool can be divided into these meals.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">Why does spaying/neutering affect food requirements?</div>
+                    <p>Spayed or neutered dogs often have slower metabolisms and may require 20-30% fewer calories than intact dogs. This is why our calculator adjusts recommendations based on this factor.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">Should I follow the feeding guidelines on dog food packages?</div>
+                    <p>Package guidelines are a good starting point but are often too general. Our calculator provides more personalized recommendations by considering your dog's specific characteristics. Always monitor your dog's weight and condition and adjust as needed.</p>
+                </div>
+            </section>
+            
+            <div class="ad-container">
+                <!-- Google AdSense Placeholder -->
+                <p>Advertisement</p>
+                <div style="background-color: #d1d5db; height: 250px; display: flex; align-items: center; justify-content: center;">
+                    Google AdSense Rectangle (300x250)
+                </div>
+            </div>
+            
+            <section>
+                <h2>Related Articles</h2>
+                <div class="blog-links">
+                    <div class="blog-card">
+                        <h3>Understanding Dog Nutrition Labels</h3>
+                        <p>Learn how to decode the information on dog food packaging to make the best choices for your pet's health.</p>
+                        <a href="/blog/dog-nutrition-labels">Read more →</a>
+                    </div>
+                    
+                    <div class="blog-card">
+                        <h3>Homemade Dog Food Recipes</h3>
+                        <p>Healthy, balanced recipes you can prepare at home for dogs with specific dietary needs or preferences.</p>
+                        <a href="/blog/homemade-dog-food-recipes">Read more →</a>
+                    </div>
+                    
+                    <div class="blog-card">
+                        <h3>Managing Your Dog's Weight</h3>
+                        <p>Tips and strategies for helping your dog maintain a healthy weight through diet and exercise.</p>
+                        <a href="/blog/managing-dog-weight">Read more →</a>
+                    </div>
+                </div>
+            </section>
+        </article>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 PetCareTools. All rights reserved.</p>
+            <p><a href="/privacy" style="color: white;">Privacy Policy</a> | <a href="/terms" style="color: white;">Terms of Service</a></p>
+        </div>
+    </footer>
+    
+    <script>
+        document.getElementById('dogFoodCalculator').addEventListener('submit', function(e) {
+            e.preventDefault();
+            calculateDogFood();
+        });
+        
+        function calculateDogFood() {
+            // Get input values
+            const weight = parseFloat(document.getElementById('dogWeight').value);
+            const age = document.getElementById('dogAge').value;
+            const activity = document.getElementById('activityLevel').value;
+            const foodType = document.getElementById('foodType').value;
+            const isNeutered = document.getElementById('isNeutered').checked;
+            
+            // Validate inputs
+            if (isNaN(weight) || weight <= 0 || !age || !activity || !foodType) {
+                alert('Please fill in all required fields with valid values.');
+                return;
+            }
+            
+            // Base calculation (calories per day)
+            let calories;
+            
+            if (age === 'puppy') {
+                // Puppies need more calories per pound
+                calories = weight * 55;
+            } else if (age === 'adult') {
+                calories = weight * 30;
+            } else { // senior
+                calories = weight * 25;
+            }
+            
+            // Adjust for activity level
+            if (activity === 'low') {
+                calories *= 0.9;
+            } else if (activity === 'high') {
+                calories *= 1.2;
+            }
+            
+            // Adjust for neutered status
+            if (isNeutered) {
+                calories *= 0.8;
+            }
+            
+            // Convert calories to food amount based on food type
+            let foodAmount;
+            let foodMeasure;
+            let additionalTips = '';
+            
+            if (foodType === 'dry') {
+                // Dry kibble averages about 350-400 kcal per cup
+                foodAmount = calories / 375;
+                foodMeasure = 'cups';
+                additionalTips = 'Divide this amount into 2 meals per day. Always provide fresh water with dry food.';
+            } else if (foodType === 'wet') {
+                // Wet food averages about 400-500 kcal per pound (typical can)
+                foodAmount = calories / 450;
+                foodMeasure = 'cans (13oz)';
+                additionalTips = 'Wet food is more hydrating but can contribute to dental issues if not supplemented with dry food or dental care.';
+            } else { // raw
+                // Raw diets typically recommend 2-3% of body weight
+                foodAmount = weight * 0.025;
+                foodMeasure = 'pounds';
+                additionalTips = 'Raw diets require careful balance. Consult with a veterinary nutritionist to ensure complete nutrition.';
+            }
+            
+            // Round to reasonable precision
+            foodAmount = Math.round(foodAmount * 10) / 10;
+            
+            // Display result
+            document.getElementById('resultText').textContent = 
+                `Your dog should eat approximately ${foodAmount} ${foodMeasure} per day.`;
+            
+            document.getElementById('additionalTips').textContent = additionalTips;
+            document.getElementById('result').style.display = 'block';
+            
+            // Scroll to result
+            document.getElementById('result').scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
